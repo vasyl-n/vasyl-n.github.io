@@ -1,0 +1,155 @@
+
+.grid {
+  display: table;
+  border-spacing: 5px;
+  position: relative;
+  top: 110px;
+  left: 370px;
+  visibility: hidden
+}
+.row {
+  display: table-row
+}
+#whos_turn {
+  position: absolute;
+  top: 50px;
+  left: 500px;
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: monospace;
+}
+
+.cell {
+  width: 105px;
+  height: 105px;
+  background: black;
+  display: table-cell;
+  cursor: pointer;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 2px #999;
+}
+.a {
+  background-color: grey;
+}
+
+#xscore {
+  position: absolute;
+  left: 300px;
+  top: 30px;
+  position: element(#1);
+  display: block;
+  padding: 27px 25px;
+  text-align: center;
+  text-decoration: overline;
+  text-decoration: underline;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: 40px;
+  border-radius: 15px;
+  font-size: 28px;
+  font-family: monospace;
+}
+#oscore {
+  position: absolute;
+  left: 605px;
+  top: 30px;
+  display: inline-block;
+  padding: 27px 25px;
+  text-align: center;
+  text-decoration: overline;
+    text-decoration: underline;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  font-size: 28px;
+  font-family: monospace;
+}
+#winner {
+  position: absolute;;
+  top: 200px;
+  left: 463px;
+  display: inline-block;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  font-family: monospace;
+}
+.win_marker {
+  font-size: 43px;
+}
+.word_winner {
+  font-size: 30px;
+}
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  position: absolute;
+  top: 460px;
+  left: 270px;
+  z-index: 10;
+  font-family: monospace;
+  font-weight: bold;
+}
+.choose_player {
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  display: block;
+  padding: 15px 25px;
+  font-size: 20px;
+  font-family: monospace;
+  cursor: pointer;
+  color: #fff;
+  background-color: #4CAF50;
+  box-shadow: 0 9px #999;
+  position: absolute;
+  top: 300px;
+  font-weight: bold;
+  width: 170px;
+}
+#one {
+  position: absolute;
+  top: 200px;
+}
+#two {
+  position: absolute;
+  top: 200px;
+  left: 200px;
+}
+
+#playAsO {
+  position: absolute;
+  left: 200px;
+}
+.choose_player:hover {background-color: #3e8e41}
+.choose_player:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);}
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);}
