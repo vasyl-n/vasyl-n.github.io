@@ -230,15 +230,7 @@ function make_computer_move(board, m){
             break;}
             }
           }
-      if(attack_count >=2){
-        for(q=0; q<3; q++){
-          if (is_free(combinations[i][q]) == true) {
-            num = combinations[i][q]
-            attack = true
-            console.log(num + "in attack if")
-            break}
-        }
-      }
+
       if(count >=2){
         for(q=0; q<3; q++){
           if (is_free(combinations[i][q]) == true) {
@@ -248,6 +240,16 @@ function make_computer_move(board, m){
             break}
         }
       }
+      if(attack_count >=2){
+        for(q=0; q<3; q++){
+          if (is_free(combinations[i][q]) == true) {
+            num = combinations[i][q]
+            attack = true
+            console.log(num + "in attack if")
+            break}
+        }
+      }
+
     }if(block==true || attack==true){break}
 
     }

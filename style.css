@@ -7,7 +7,7 @@ body { background-color: lightblue}
   top: 110px;
   left: 370px;
   visibility: hidden;
-  background: linear-gradient(to bottom right, red,orange,yellow,green,blue,indigo,violet);
+  background: linear-gradient(to bottom right, silver, grey, black, grey, black, grey, silver);
 }
 .row {
   display: table-row
