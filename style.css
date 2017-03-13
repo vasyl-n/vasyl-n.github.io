@@ -1,11 +1,13 @@
 
+body { background-color: lightblue}
 .grid {
   display: table;
   border-spacing: 5px;
   position: relative;
   top: 110px;
   left: 370px;
-  visibility: hidden
+  visibility: hidden;
+  background: linear-gradient(to bottom right, red,orange,yellow,green,blue,indigo,violet);
 }
 .row {
   display: table-row
@@ -19,6 +21,10 @@
   font-size: 20px;
   font-family: monospace;
 }
+.cell:hover{
+  background-color: grey;
+
+}
 
 .cell {
   width: 105px;
@@ -31,6 +37,7 @@
   border: none;
   border-radius: 15px;
   box-shadow: 0 2px #999;
+  transition-duration: 0.4s;
 }
 .a {
   background-color: grey;
@@ -110,6 +117,7 @@
   z-index: 10;
   font-family: monospace;
   font-weight: bold;
+  border: inset;
 }
 .choose_player {
   text-align: center;
@@ -150,6 +158,7 @@
 .button:hover {background-color: #3e8e41}
 
 .button:active {
+  border: outset;
   background-color: #3e8e41;
   box-shadow: 0 5px #666;
   transform: translateY(4px);}

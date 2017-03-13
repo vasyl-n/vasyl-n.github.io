@@ -6,15 +6,15 @@ $(document).on('click','#one', function(){
   window.one_pl = true
   replay()})
 
-$(document).ready(function(){
-$('.cell').hover(
-  function(){
-  $(this).addClass('a');
-  },
-  function(){
-  $(this).removeClass('a');
-  });
-})
+// $(document).ready(function(){
+// $('.cell').hover(
+//   function(){
+//   $(this).addClass('a');
+//   },
+//   function(){
+//   $(this).removeClass('a');
+//   });
+// })
 
 $(document).ready(function(){
 $('#new_game').click(function(){
@@ -38,7 +38,10 @@ function replay(){
     $('#winner').remove()
     $('.grid').show()
     $('.cell').empty()
-    if(window.play_as_o){
+    if(window.play_as_x == true){
+      window.m = 'X'
+    }
+    else if(window.play_as_x == false){
       window.m = 'O'
     }
     displ_1_2_pl_options()
@@ -172,12 +175,10 @@ function set_m_to_x(){
   replay()
   window.m = 'X'
   window.play_as_x = true
-  window.play_as_o = false
 }
 function set_m_to_o(){
   replay()
   window.m = 'O'
-  window.play_as_o = true
   window.play_as_x = false
 }
 
@@ -254,7 +255,7 @@ function make_computer_move(board, m){
  return num
 }
 
-
+var play_as_x = true
 var m = "X"
 $(document).on('click', '#playAsX', function(){
     set_m_to_x()
