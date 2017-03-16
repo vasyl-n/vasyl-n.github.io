@@ -1,97 +1,123 @@
-
-body { background-color: lightblue}
-.grid {
-  display: table;
-  border-spacing: 5px;
-  position: relative;
-  top: 110px;
-  left: 370px;
-  visibility: hidden;
-  background: linear-gradient(to bottom right, silver, grey, black, grey, black, grey, silver);
-}
-.row {
-  display: table-row
-}
-#whos_turn {
+.x {
+  margin: 0;
   position: absolute;
-  top: 50px;
-  left: 500px;
-  color: black;
-  font-weight: bold;
-  font-size: 20px;
-  font-family: monospace;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
 }
-.cell:hover{
-  background-color: grey;
-
+.o {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
 }
+body { background-color: black}
+.bot {border-bottom: thick solid #14bdac}
+.right {border-right: thick solid #14bdac;}
+.left {border-left: thick solid #14bdac;}
 
+
+.grid {
+position: absolute;
+top: 60%;
+left: 50%;
+width: 400px;
+height: 400px;
+margin-left: -200px;
+margin-top: -265px;
+
+display: table;
+border-spacing: 0px;
+position: absolute;
+visibility: hidden;
+z-index: 1;
+}
 .cell {
-  width: 105px;
-  height: 105px;
+  position: relative;
+  width: 104px;
+  height: 104px;
   background: black;
   display: table-cell;
   cursor: pointer;
-  color: #fff;
-  background-color: #4CAF50;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 2px #999;
-  transition-duration: 0.4s;
-}
-.a {
-  background-color: grey;
+  background-color: transparent;
 }
 
-#xscore {
-  position: absolute;
-  left: 300px;
-  top: 30px;
-  position: element(#1);
-  display: block;
-  padding: 27px 25px;
-  text-align: center;
-  text-decoration: overline;
-  text-decoration: underline;
-  outline: none;
-  color: #fff;
-  background-color: #4CAF50;
-  border: 40px;
-  border-radius: 15px;
-  font-size: 28px;
-  font-family: monospace;
+
+.row {
+  display: table-row
 }
-#oscore {
-  position: absolute;
-  left: 605px;
-  top: 30px;
-  display: inline-block;
-  padding: 27px 25px;
-  text-align: center;
-  text-decoration: overline;
-    text-decoration: underline;
-  outline: none;
-  color: #fff;
-  background-color: #4CAF50;
-  border: none;
-  border-radius: 15px;
-  font-size: 28px;
-  font-family: monospace;
+
+.dropbtn {
+    background-color: black;
+    color: white;
+    padding: 6px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
 }
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+}
+.dropdown-content a:hover {background-color: #14bdac;
+opacity: 1;}
+
+.score {
+    width: 360px;
+    margin-left: -185px;
+    margin-top: -278px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    padding: 27px 25px;
+    text-align: center;
+    color: #14bdac;
+}
+.score span {
+    font: 20px "Raleway",sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    /*-webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);*/
+  }
+.score span:hover {color: white}
 #winner {
   position: absolute;;
   top: 200px;
-  left: 463px;
-  display: inline-block;
-  padding: 15px 25px;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  color: #fff;
-  background-color: #4CAF50;
-  border: none;
-  border-radius: 15px;
-  font-family: monospace;
+text-transform: uppercase;
+  margin-left: -47px;
+}
+#xscore {
+  position:absolute;
+    left: 8px;
+  cursor: pointer;
+}
+#oscore {
+  position:absolute;
+  right: 0px;
+  cursor: pointer;
 }
 .win_marker {
   font-size: 43px;
@@ -100,65 +126,71 @@ body { background-color: lightblue}
   font-size: 30px;
 }
 .button {
-  display: inline-block;
-  padding: 15px 25px;
   font-size: 20px;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
-  outline: none;
-  color: #fff;
-  background-color: #4CAF50;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
-  position: absolute;
-  top: 460px;
-  left: 270px;
-  z-index: 10;
-  font-family: monospace;
-  font-weight: bold;
-  border: inset;
+  background-color: transparent;
+  color: #14bdac;
+  position: relative;
+  top: 512px;
+  left: 50%;
+  margin-left: -58px;
+  margin-top: -2%;
+  padding: 10px 8px;
+  border: none;
+text-transform: uppercase;
 }
-.choose_player {
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  display: block;
-  padding: 15px 25px;
-  font-size: 20px;
-  font-family: monospace;
-  cursor: pointer;
-  color: #fff;
-  background-color: #4CAF50;
-  box-shadow: 0 9px #999;
-  position: absolute;
-  top: 300px;
-  font-weight: bold;
-  width: 170px;
-}
-#one {
-  position: absolute;
-  top: 200px;
-}
-#two {
-  position: absolute;
-  top: 200px;
-  left: 200px;
-}
+button:hover {color: white}
+  button:focus {outline:0;}
 
-#playAsO {
-  position: absolute;
-  left: 200px;
-}
-.choose_player:hover {background-color: #3e8e41}
-.choose_player:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);}
-.button:hover {background-color: #3e8e41}
-
-.button:active {
-  border: outset;
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);}
+  @media only screen and (max-width: 500px) {
+      .grid {
+          position: absolute;
+          top: 60%;
+          left: 50%;
+          width: 300px;
+          height: 300px;
+          margin-left: -150px;
+          margin-top: -200px;
+          display: table;
+          border-spacing: 0px;
+          position: absolute;
+          visibility: hidden;
+          z-index: 1;
+      }
+      .cell {
+        position: relative;
+        width: 90px;
+        height: 90px;
+        background: black;
+        display: table-cell;
+        cursor: pointer;
+        background-color: transparent;
+      }
+      .score {
+          width: 300px;
+          margin-left: -185px;
+          margin-top: -278px;
+          position: absolute;
+          left: 50%;
+          top: 54%;
+          padding: 27px 25px;
+    }
+    #xscore {
+      position:absolute;
+        left: 36px;
+      cursor: pointer;
+    }
+    #oscore {
+      position:absolute;
+      right: 14px;
+      cursor: pointer;
+    }
+    .button {
+      position: absolute;
+      top: 77%;
+      left: 45%;
+    }
+    body{margin: 0px}
+  }

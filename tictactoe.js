@@ -1,36 +1,45 @@
+score_x = 0
+score_o = 0
+one_pl = true
 var one_pl = true
-$(document).on('click','#two', function(){
+$(document).on('click','#twon', function(){
   window.one_pl = false
-  replay()})
-$(document).on('click','#one', function(){
+  replay()
+display_whos_turn()
+  display_score(score_x, score_o)
+})
+$(document).on('click','#onen', function(){
   window.one_pl = true
-  replay()})
-
-// $(document).ready(function(){
-// $('.cell').hover(
-//   function(){
-//   $(this).addClass('a');
-//   },
-//   function(){
-//   $(this).removeClass('a');
-//   });
-// })
+  replay()
+display_whos_turn()
+  display_score(score_x, score_o)})
 
 $(document).ready(function(){
-$('#new_game').click(function(){
-  $(this).fadeOut("fast")
-$('.grid').css({opacity: 0, visibility: "visible"}).animate({opacity: 1}, 'fast')
-displ_1_2_pl_options()
-display_marker_options()
-displ_1_2_pl_options()
-display_score(score_x, score_o)
-$('#replay').remove()
-var replay = $('<button>Restart Game</button>').attr('class', 'button').attr('id', 'replay')
-$('body').append(replay)
-})})
+  $('.grid').css({opacity: 0, visibility: "visible"}).animate({opacity: 1}, 'fast')
+  displ_1_2_pl_options()
+  display_marker_options()
+  displ_1_2_pl_options()
+  display_score(score_x, score_o)
+  $('#replay').remove()
+  var replay = $('<button>Restart Game</button>').attr('class', 'button').attr('id', 'replay')
+  $('body').append(replay)
+display_whos_turn()})
+
 
 $(document).on('click','#replay', function(){
 replay()
+})
+$(document).on('click','#winner', function(){
+replay()
+})
+
+$(document).on("click", ".dropbtn", function(){
+    $('.dropdown-content').toggle()
+
+});
+$(document).on("click", "a", function(){
+    $('.dropdown-content').hide();
+
 })
 
 
@@ -77,18 +86,28 @@ function score_count(m){
 
 function display_score(x,o){
     $(document).ready(function(){
+      if(window.one_pl == true){
       $('.score').remove()
-      $('body').append("<div class='score'><span id='xscore'>X ---- "+ x + "</span><span id='oscore'>O ---- " + o + "</span></div>")
+      $('body').append("<div class='score'><span id='xscore'>PLAYER</br>"+ x + "</span><span id='oscore'>COMPUTER</br>" + o + "</span></div>")
+}else if(window.one_pl==false){
+  $('.score').remove()
+  $('body').append("<div class='score'><span id='xscore'>PLAYER-1</br>"+ x + "</span><span id='oscore'>PLAYER-2</br>" + o + "</span></div>")
+}
     })}
+
 function display_whos_turn(){
+  if(window.one_pl == false){
   if(m == "X"){
-      $('#whos_turn').remove()
-      $('body').append("<div id='whos_turn'>X - Turn</div>")
+      $('#xscore').css("opacity", "1")
+        $('#oscore').css("opacity", "0.4")
     }
     else if(m == "O"){
-        $('#whos_turn').remove()
-        $('body').append("<div id='whos_turn'>O - Turn</div>")
+      $('#oscore').css("opacity", "1")
+        $('#xscore').css("opacity", "0.4")
       }}
+    else{  $('#xscore').css("opacity", "1")
+    $('#oscore').css("opacity", "1")
+  }}
 
 function user_marker(m){
     if(m == "X"){
@@ -134,8 +153,9 @@ function is_draw(board){
 
 function game_over(m){
   $(document).ready(function(){
+    $('#replay').remove()
   var replay = $('<button>Restart Game</button>').attr('class', 'button').attr('id', 'replay')
-  $('body').append('<button id="winner"><span class="win_marker">'+ m + '</span><br><span class="word_winner">WINNER</span></button>')
+  $('body').append('<button class="button" id="winner"><span class="win_marker">'+ m + '</span><br><span class="word_winner">WINNER</span></button>')
   $('body').append(replay)
   // window.m = 'X'
 })}
@@ -145,23 +165,23 @@ function game_over_draw(){
   $('#winner').remove()
   $('#replay').remove()
   var replay = $('<button>Restart Game</button>').attr('class', 'button').attr('id', 'replay')
-  $('body').append('<button id="winner"><span class="win_marker"> X - O </span><br><span class="word_winner">DRAW!</span></button>')
+  $('body').append('<button class="button" id="winner"><span class="win_marker"> X - O </span><br><span class="word_winner">DRAW!</span></button>')
   $('body').append(replay)
   // window.m = 'X'
 })}
 
 function display_marker_options(){
-  $('#playAsX').remove()
-  $('#playAsO').remove()
-  $('body').append("<button class='choose_player' id='playAsX'>X goes first</button>")
-  $('body').append("<button class='choose_player' id='playAsO'>O goes first</button>")
+  // $('#playAsX').remove()
+  // $('#playAsO').remove()
+  // $('body').append("<button class='choose_player' id='playAsX'>X goes first</button>")
+  // $('body').append("<button class='choose_player' id='playAsO'>O goes first</button>")
 }
 
 function displ_1_2_pl_options(){
-  $('#one').remove()
-  $('#two').remove()
-  $('body').append("<button class='choose_player' id='one'>One Player</button>")
-  $('body').append("<button class='choose_player' id='two'>Two Players</button>")
+  // $('#one').remove()
+  // $('#two').remove()
+  // $('body').append("<button class='choose_player' id='one'>One Player</button>")
+  // $('body').append("<button class='choose_player' id='two'>Two Players</button>")
 }
 
 function is_free(p){
@@ -259,12 +279,12 @@ function make_computer_move(board, m){
 
 var play_as_x = true
 var m = "X"
-$(document).on('click', '#playAsX', function(){
+$(document).on('click', '#xscore', function(){
     set_m_to_x()
     display_whos_turn()
 
 })
-$(document).on('click', '#playAsO', function(){
+$(document).on('click', '#oscore', function(){
       set_m_to_o()
     display_whos_turn()
 
@@ -273,7 +293,6 @@ var $id = ""
 $(document).on('click', '.cell', function () {
   id = (this.id)
   place_marker(window.board, id, m)
-
     print_board(board)
     if(check_if_win(m)){
       game_over(m)
@@ -310,3 +329,24 @@ if(if_win==false && is_draw(window.board) == false){
       }
     }
 })
+
+$(document).on('click', '#oscore', function(){
+  if(one_pl == true){
+    id = make_computer_move(board, m)
+        place_marker(board, id, window.m)
+        print_board(board)
+
+        if(check_if_win(m)){
+          game_over(m)
+          score_count(m)
+          display_score(window.score_x, window.score_o)
+          fade_out_board()
+        }
+        else if(is_draw(board)){
+          game_over_draw()
+          fade_out_board()
+        }
+
+        gui_marker()
+        user_marker(m)
+    }})
