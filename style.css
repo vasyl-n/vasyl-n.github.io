@@ -129,16 +129,12 @@ text-transform: uppercase;
 .button {
   font-size: 20px;
   cursor: pointer;
-  text-align: center;
-  text-decoration: none;
   background-color: transparent;
   color: #14bdac;
   position: absolute;
   top: 88%;
   left: 50%;
   margin-left: -100px;
-  margin-top: -2%;
-  padding: 10px 8px;
   border: none;
   text-transform: uppercase;
   width: 200px;
