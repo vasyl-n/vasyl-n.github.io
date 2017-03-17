@@ -88,10 +88,10 @@ function display_score(x,o){
     $(document).ready(function(){
       if(window.one_pl == true){
       $('.score').remove()
-      $('body').append("<div class='score'><span id='xscore'>PLAYER</br>"+ x + "</span><span id='oscore'>COMPUTER</br>" + o + "</span></div>")
+      $('.scorenmenu').append("<div class='score'><span id='xscore'>PLAYER</br>"+ x + "</span><span id='oscore'>COMPUTER</br>" + o + "</span></div>")
 }else if(window.one_pl==false){
   $('.score').remove()
-  $('body').append("<div class='score'><span id='xscore'>PLAYER-1</br>"+ x + "</span><span id='oscore'>PLAYER-2</br>" + o + "</span></div>")
+  $('.scorenmenu').append("<div class='score'><span id='xscore'>PLAYER-1</br>"+ x + "</span><span id='oscore'>PLAYER-2</br>" + o + "</span></div>")
 }
     })}
 
