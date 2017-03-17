@@ -20,10 +20,10 @@ $(document).ready(function(){
   display_marker_options()
   displ_1_2_pl_options()
   display_score(score_x, score_o)
-  $('#replay').remove()
-  var replay = $('<button>Restart Game</button>').attr('class', 'button').attr('id', 'replay')
-  $('body').append(replay)
-display_whos_turn()})
+  // $('#replay').remove()
+  // var replay = $('<button>Restart Game</button>').attr('class', 'button').attr('id', 'replay')
+  // $('body').append(replay)
+  display_whos_turn()})
 
 
 $(document).on('click','#replay', function(){
