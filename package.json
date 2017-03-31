@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^19.0.2",
+    "jest-jquery-matchers": "^1.4.2",
+    "setupFiles": [
+      "./test-env.js"
+    ]
+  }
+}

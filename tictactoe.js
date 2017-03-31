@@ -1,3 +1,4 @@
+window.$ = require('./jquery-3.1.1.js')
 score_x = 0
 score_o = 0
 one_pl = true
@@ -8,40 +9,36 @@ $(document).on('click','#twon', function(){
 display_whos_turn()
   display_score(score_x, score_o)
 })
+
 $(document).on('click','#onen', function(){
   window.one_pl = true
   replay()
-display_whos_turn()
-  display_score(score_x, score_o)})
+  display_whos_turn()
+  display_score(score_x, score_o)
+})
 
 $(document).ready(function(){
   $('.grid').css({opacity: 0, visibility: "visible"}).animate({opacity: 1}, 'fast')
-  displ_1_2_pl_options()
-  display_marker_options()
-  displ_1_2_pl_options()
+  // display_marker_options()
   display_score(score_x, score_o)
-  // $('#replay').remove()
-  // var replay = $('<button>Restart Game</button>').attr('class', 'button').attr('id', 'replay')
-  // $('body').append(replay)
-  display_whos_turn()})
-
+  display_whos_turn()
+})
 
 $(document).on('click','#replay', function(){
 replay()
 })
+
 $(document).on('click','#winner', function(){
 replay()
 })
 
 $(document).on("click", ".dropbtn", function(){
     $('.dropdown-content').toggle()
-
 });
+
 $(document).on("click", "a", function(){
     $('.dropdown-content').hide();
-
 })
-
 
 function replay(){
     $('#winner').remove()
@@ -53,14 +50,10 @@ function replay(){
     else if(window.play_as_x == false){
       window.m = 'O'
     }
-    displ_1_2_pl_options()
-    display_marker_options()
     board = [".", ".", ".",
              ".", ".", ".",
              ".", ".", "."]
 }
-
-
 
 board = [".", ".", ".",
          ".", ".", ".",
@@ -72,8 +65,7 @@ console.log(board[0], board[1], board[2])
 console.log(board[3], board[4], board[5])
 console.log(board[6], board[7], board[8])
 }
-score_x = 0
-score_o = 0
+
 function score_count(m){
     if(m=="X"){
       score_x += 1
@@ -86,28 +78,33 @@ function score_count(m){
 
 function display_score(x,o){
     $(document).ready(function(){
-      if(window.one_pl == true){
-      $('.score').remove()
-      $('.scorenmenu').append("<div class='score'><span id='xscore'>PLAYER</br>"+ x + "</span><span id='oscore'>COMPUTER</br>" + o + "</span></div>")
-}else if(window.one_pl==false){
-  $('.score').remove()
-  $('.scorenmenu').append("<div class='score'><span id='xscore'>PLAYER-1</br>"+ x + "</span><span id='oscore'>PLAYER-2</br>" + o + "</span></div>")
-}
-    })}
+        if(window.one_pl == true){
+            $('.score').remove()
+            $('.scorenmenu').append("<div class='score'><span id='xscore'>PLAYER</br>"+ x + "</span><span id='oscore'>COMPUTER</br>" + o + "</span></div>")
+        }
+        else if(window.one_pl==false){
+            $('.score').remove()
+            $('.scorenmenu').append("<div class='score'><span id='xscore'>PLAYER-1</br>"+ x + "</span><span id='oscore'>PLAYER-2</br>" + o + "</span></div>")
+        }
+    }
+)}
+
 
 function display_whos_turn(){
   if(window.one_pl == false){
-  if(m == "X"){
-      $('#xscore').css("opacity", "1")
+      if(m == "X"){
+        $('#xscore').css("opacity", "1")
         $('#oscore').css("opacity", "0.4")
-    }
-    else if(m == "O"){
-      $('#oscore').css("opacity", "1")
+      }
+      else if(m == "O"){
+        $('#oscore').css("opacity", "1")
         $('#xscore').css("opacity", "0.4")
-      }}
+      }
+    }
     else{  $('#xscore').css("opacity", "1")
-    $('#oscore').css("opacity", "1")
-  }}
+      $('#oscore').css("opacity", "1")
+  }
+}
 
 function user_marker(m){
     if(m == "X"){
@@ -118,7 +115,7 @@ function user_marker(m){
         window.m = "X"
         display_whos_turn()
         }
-    return m
+    return window.m
   }
 
 function place_marker(board, position, marker){
@@ -152,13 +149,13 @@ function is_draw(board){
     }
 
 function game_over(m){
-  $(document).ready(function(){
-    $('#replay').remove()
-  var replay = $('<button>Restart Game</button>').attr('class', 'button').attr('id', 'replay')
-  $('body').append('<button class="button" id="winner"><span class="win_marker">'+ m + '</span><br><span class="word_winner">WINNER</span></button>')
-  $('body').append(replay)
-  // window.m = 'X'
-})}
+    $(document).ready(function(){
+        $('#replay').remove()
+    var replay = $('<button>Restart Game</button>').attr('class', 'button').attr('id', 'replay')
+    $('body').append('<button class="button" id="winner"><span class="win_marker">'+ m + '</span><br><span class="word_winner">WINNER</span></button>')
+    $('body').append(replay)
+    }
+  )}
 
 function game_over_draw(){
   $(document).ready(function(){
@@ -167,35 +164,24 @@ function game_over_draw(){
   var replay = $('<button>Restart Game</button>').attr('class', 'button').attr('id', 'replay')
   $('body').append('<button class="button" id="winner"><span class="win_marker"> X - O </span><br><span class="word_winner">DRAW!</span></button>')
   $('body').append(replay)
-  // window.m = 'X'
-})}
-
-function display_marker_options(){
-  // $('#playAsX').remove()
-  // $('#playAsO').remove()
-  // $('body').append("<button class='choose_player' id='playAsX'>X goes first</button>")
-  // $('body').append("<button class='choose_player' id='playAsO'>O goes first</button>")
-}
-
-function displ_1_2_pl_options(){
-  // $('#one').remove()
-  // $('#two').remove()
-  // $('body').append("<button class='choose_player' id='one'>One Player</button>")
-  // $('body').append("<button class='choose_player' id='two'>Two Players</button>")
-}
+  }
+)}
 
 function is_free(p){
     p = Number(p)
     if(window.board[p] == ".")
         {return true}
     if(window.board[p] == "X" || board[p] == "O"){
-        return false}}
+        return false
+    }
+}
 
 function set_m_to_x(){
   replay()
   window.m = 'X'
   window.play_as_x = true
 }
+
 function set_m_to_o(){
   replay()
   window.m = 'O'
@@ -203,20 +189,22 @@ function set_m_to_o(){
 }
 
 function fade_out_board(){
-  $(document).ready(function(){
-    $('.grid').hide('fast')
-})}
+    $(document).ready(function(){
+        $('.grid').hide('fast')
+    }
+)}
 
 function gui_marker(){
     if(window.m=="X"){
-      var img = $('<img src="./x.png" /> ').addClass('x');
-      $('#' + id).empty()
-      $('#' + id).prepend(img)}
+        var img = $('<img src="./x.png" /> ').addClass('x');
+        $('#' + id).empty()
+        $('#' + id).prepend(img)}
     if(window.m == "O"){
-      var img = $('<img src="./o.png" /> ').addClass('o');
-      $('#' + id).empty()
-      $('#' + id).prepend(img)
-    }}
+        var img = $('<img src="./o.png" /> ').addClass('o');
+        $('#' + id).empty()
+        $('#' + id).prepend(img)
+    }
+  }
 
 combinations = [[0,1,2,], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8],[2,4,6]]
 
@@ -250,7 +238,6 @@ function make_computer_move(board, m){
             break;}
             }
           }
-
       if(count >=2){
         for(q=0; q<3; q++){
           if (is_free(combinations[i][q]) == true) {
@@ -269,9 +256,8 @@ function make_computer_move(board, m){
             break}
         }
       }
-
-    }if(block==true || attack==true){break}
-
+    }
+    if(block==true || attack==true){break}
     }
     console.log(num+"num")
  return num
@@ -282,13 +268,13 @@ var m = "X"
 $(document).on('click', '#xscore', function(){
     set_m_to_x()
     display_whos_turn()
-
 })
+
 $(document).on('click', '#oscore', function(){
       set_m_to_o()
     display_whos_turn()
+})
 
-    })
 var $id = ""
 $(document).on('click', '.cell', function () {
   id = (this.id)
@@ -346,7 +332,11 @@ $(document).on('click', '#oscore', function(){
           game_over_draw()
           fade_out_board()
         }
-
         gui_marker()
         user_marker(m)
     }})
+
+    module.exports = {
+      user_marker,
+      score_count
+    }
