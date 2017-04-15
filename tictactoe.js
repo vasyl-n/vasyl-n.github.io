@@ -1,4 +1,4 @@
-window.$ = require('./jquery-3.1.1.js')
+// window.$ = require('./jquery-3.1.1.js')
 score_x = 0
 score_o = 0
 one_pl = true
