@@ -335,8 +335,3 @@ $(document).on('click', '#oscore', function(){
         gui_marker()
         user_marker(m)
     }})
-
-    module.exports = {
-      user_marker,
-      score_count
-    }
